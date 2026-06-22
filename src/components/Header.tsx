@@ -54,7 +54,7 @@ export default function Header() {
               className="nav-logo-img"
             />
             <span className="nav-logo-text">
-              Pro <span>Master</span>
+              Pro<span>Master</span>
             </span>
           </Link>
 

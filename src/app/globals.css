@@ -848,7 +848,7 @@ button {
 }
 .detail-image .img-ph {
   width: 100%;
-  height: 520px;
+  aspect-ratio: 819 / 1024;
   background: var(--bg);
 }
 .detail-image .img-ph::before,
@@ -897,7 +897,7 @@ button {
   font-family: var(--mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--light);
+  color: var(--pm-red);
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -911,9 +911,9 @@ button {
   font-family: var(--mono);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  border: 1px solid var(--border);
+  border: 1px solid var(--black);
   padding: 6px 12px;
-  color: var(--mid);
+  color: var(--black);
   background: var(--white);
   transition:
     border-color 0.15s,
@@ -1096,35 +1096,27 @@ a.di-btn-secondary {
   flex-direction: column;
 }
 .detail-gallery-main {
-  height: 520px;
+  width: 100%;
   position: relative;
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg);
-  padding: 28px 36px;
+  padding: 12px;
   box-sizing: border-box;
-  overflow: hidden;
 }
 .detail-gallery-frame {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 65%;
+  line-height: 0;
 }
 .detail-gallery-ph {
-  width: 100%;
-  height: 100%;
+  width: 65%;
+  aspect-ratio: 819 / 1024;
   background: var(--bg);
 }
 .detail-gallery-img {
-  max-width: 94%;
-  max-height: 94%;
-  width: auto;
+  width: 100%;
   height: auto;
-  object-fit: contain;
-  object-position: center;
   display: block;
 }
 .detail-gallery-thumbs {
@@ -2887,13 +2879,6 @@ a.proj-row,
   .detail-spec-list {
     grid-template-columns: 1fr;
   }
-  .detail-gallery-main,
-  .detail-image .img-ph {
-    height: 420px;
-  }
-  .detail-gallery-main {
-    padding: 20px 32px;
-  }
   .related-products-grid {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
@@ -2997,13 +2982,6 @@ a.proj-row,
   .inq-left,
   .inq-right {
     padding: 40px 24px;
-  }
-  .detail-gallery-main,
-  .detail-image .img-ph {
-    height: 360px;
-  }
-  .detail-gallery-main {
-    padding: 16px 24px;
   }
   .detail-panel {
     padding: 32px 20px;

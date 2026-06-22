@@ -103,10 +103,11 @@ export function sanityToProductDetail(doc: any): ProductDetail {
 
   const galleryUrl =
     getSanityImageUrl(doc?.image, {
-      width: 1200,
-      height: 1200,
+      width: 1600,
       fit: "max",
-    }) ?? list.image.url;
+    }) ??
+    getSanityImageUrl(doc?.image) ??
+    list.image.url;
   const images: ProductImage[] = galleryUrl
     ? [{ alt: list.image.alt, url: galleryUrl }]
     : [{ alt: list.image.alt }];
