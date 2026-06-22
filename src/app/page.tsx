@@ -188,10 +188,19 @@ export default async function Home() {
               ))}
             </div>
 
-            <div className="di-downloads">
-              <button className="di-dl-btn">TDS PDF</button>
-              <button className="di-dl-btn">SDS PDF</button>
-              <button className="di-dl-btn">Application Guide</button>
+            <div className="detail-downloads-compact">
+              <p className="detail-downloads-compact-label">Downloads</p>
+              <div className="detail-downloads-compact-list">
+                <a href="/technical-data-sheets" className="detail-download-chip">
+                  TDS PDF
+                </a>
+                <a href="#resources" className="detail-download-chip">
+                  SDS PDF
+                </a>
+                <a href="#resources" className="detail-download-chip">
+                  Application Guide
+                </a>
+              </div>
             </div>
 
             <div className="di-actions">
