@@ -12,9 +12,11 @@ import {
   hasActiveFilters,
   resolveProductListing,
 } from "@/lib/products/listing";
+import CollapsibleFilterSidebar from "@/components/listing/CollapsibleFilterSidebar";
 import Sidebar from "@/components/products/listing/Sidebar";
 import ProductGrid from "@/components/products/listing/ProductGrid";
 import Pagination from "@/components/products/listing/Pagination";
+import { useResponsivePageSize } from "@/lib/useResponsivePageSize";
 
 type ProductListingProps = {
   products: ProductListItem[];
@@ -36,8 +38,10 @@ export default function ProductListing({
   products,
   categoryOptions,
   initialCategorySlug,
-  pageSize = 6,
+  pageSize: pageSizeProp,
 }: ProductListingProps) {
+  const responsivePageSize = useResponsivePageSize(6, 9);
+  const pageSize = pageSizeProp ?? responsivePageSize;
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<ProductSortOption>("name-asc");
   const [filters, setFilters] = useState<ProductFilterState>(() =>
@@ -61,7 +65,7 @@ export default function ProductListing({
 
   useEffect(() => {
     setPage(1);
-  }, [search, sort, filters]);
+  }, [search, sort, filters, pageSize]);
 
   useEffect(() => {
     if (page > listing.totalPages) {
@@ -76,19 +80,28 @@ export default function ProductListing({
     setPage(1);
   };
 
+  const activeFilterCount =
+    filters.categories.length +
+    filters.applicationAreas.length +
+    filters.packaging.length +
+    filters.standards.length +
+    (search.trim() ? 1 : 0);
+
   return (
     <div className="category-listing">
-      <Sidebar
-        search={search}
-        sort={sort}
-        filters={filters}
-        filterOptions={filterOptions}
-        categoryOptions={categoryOptions}
-        onSearchChange={setSearch}
-        onSortChange={setSort}
-        onFiltersChange={setFilters}
-        onClearFilters={handleClearFilters}
-      />
+      <CollapsibleFilterSidebar activeCount={activeFilterCount}>
+        <Sidebar
+          search={search}
+          sort={sort}
+          filters={filters}
+          filterOptions={filterOptions}
+          categoryOptions={categoryOptions}
+          onSearchChange={setSearch}
+          onSortChange={setSort}
+          onFiltersChange={setFilters}
+          onClearFilters={handleClearFilters}
+        />
+      </CollapsibleFilterSidebar>
 
       <div
         className={`category-listing__content min-w-0${listing.totalItems === 0 ? " category-listing__content--empty" : ""}`}

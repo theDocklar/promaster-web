@@ -32,7 +32,7 @@ export default async function FeaturedProduct() {
               className="detail-image-cover"
             />
           ) : (
-            <div className="img-ph" style={{ minHeight: 600 }}>
+            <div className="img-ph detail-image-ph">
               <div className="img-ph-label">Product Image</div>
             </div>
           )}

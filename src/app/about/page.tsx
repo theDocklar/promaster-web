@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AUTHORIZED_DISTRIBUTOR_NAME } from "@/data/distributor";
 
 export const metadata: Metadata = {
   title: "About Us | Pro Master Construction Products",
@@ -138,6 +139,11 @@ export default function AboutPage() {
               UAE-based supplier of premium construction chemicals and building
               materials — serving contractors, developers, and distributors
               across the GCC for over 15 years.
+            </p>
+            <p>
+              In the UAE, Pro Master products are supplied by{" "}
+              <strong>{AUTHORIZED_DISTRIBUTOR_NAME}</strong>, our authorized
+              distributor.
             </p>
             <p>
               Every product is engineered to perform in the extreme heat,

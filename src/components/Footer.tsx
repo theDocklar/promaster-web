@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BackToTop from "@/components/BackToTop";
+import { AUTHORIZED_DISTRIBUTOR_NAME } from "@/data/distributor";
 import { getCategoryHref, productCategories } from "@/data/productCategories";
 
 export default function Footer() {
@@ -70,7 +71,12 @@ export default function Footer() {
       </div>
 
       <div className="footer-bar">
-        <span>Pro Master Construction Products LLC</span>
+        <div className="footer-bar__legal">
+          <span>Pro Master Construction Products LLC</span>
+          <span className="footer-bar__distributor">
+            Authorized distributor: {AUTHORIZED_DISTRIBUTOR_NAME}
+          </span>
+        </div>
         <span>© {new Date().getFullYear()} All rights reserved.</span>
         <BackToTop />
       </div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AUTHORIZED_DISTRIBUTOR_NAME } from "@/data/distributor";
 import InquiryForm from "@/components/InquiryForm";
 import FeaturedProduct from "@/components/home/FeaturedProduct";
 import { FaWhatsapp } from "react-icons/fa";
@@ -85,7 +86,7 @@ export default async function Home() {
                 <img
                   src={urlFor(cat.image.asset).width(800).height(600).url()}
                   alt={cat.image.alt || cat.title}
-                  style={{ width: "100%", height: "100%", minHeight: 260, objectFit: "cover" }}
+                  className="sc-image-photo"
                 />
               ) : (
                 <div
@@ -157,6 +158,11 @@ export default async function Home() {
           <p>
             Every product is engineered to perform in the extreme heat,
             humidity, and saline conditions of the Gulf.
+          </p>
+          <p>
+            Supplied in the UAE by{" "}
+            <strong>{AUTHORIZED_DISTRIBUTOR_NAME}</strong>, authorized
+            distributor for Pro Master construction chemicals.
           </p>
           <div className="about-list">
             {[
@@ -315,7 +321,7 @@ export default async function Home() {
                 <img
                   src={urlFor(project.image.asset).width(800).height(600).url()}
                   alt={project.image.alt || project.name}
-                  style={{ height: 280, width: '100%', objectFit: 'cover' }}
+                  className="pgv-img-photo"
                 />
               ) : (
                 <div className="img-ph" style={{ height: 280 }}>
