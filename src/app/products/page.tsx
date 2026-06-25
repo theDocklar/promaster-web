@@ -49,7 +49,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
             All Products
           </h1>
           <p className="max-w-3xl text-sm leading-[1.7] text-[var(--mid)]">
-            ISO-certified systems engineered for the Gulf climate. Search, sort,
+            Systems engineered for the Gulf climate. Search, sort,
             and filter the full range — or narrow by category using the sidebar.
           </p>
         </header>

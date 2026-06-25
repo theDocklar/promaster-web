@@ -40,9 +40,7 @@ const PROJECT_DETAIL_SEEDS: Record<string, ProjectDetailSeed> = {
       { name: "PM-Ind Epo", slug: "pm-ind-epo", categorySlug: "flooring" },
       { name: "PM-PU SL", slug: "pm-pu-sl", categorySlug: "flooring" },
     ],
-    certifications: [
-      { id: "iso-4624", abbr: "ISO 4624", name: "ISO 4624 Coating Performance" },
-    ],
+    certifications: [],
     clientRef: "Government Authority — Direct Client",
   },
   "industrial-plant-structural-restoration": {
@@ -98,7 +96,7 @@ const PROJECT_DETAIL_SEEDS: Record<string, ProjectDetailSeed> = {
       { name: "PM-Ind Epo", slug: "pm-ind-epo", categorySlug: "flooring" },
       { name: "PM-Quartz HD", slug: "pm-quartz-hd", categorySlug: "flooring" },
     ],
-    certifications: [{ id: "iso-4624", abbr: "ISO 4624", name: "ISO 4624 Coating Performance" }],
+    certifications: [],
     clientRef: "Logistics Operator — EPC",
   },
   "fujairah-desalination-plant": {

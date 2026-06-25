@@ -6,6 +6,7 @@ import type {
   ProductListingResult,
   ProductSortOption,
 } from "@/types/product";
+import { withoutIsoMentions } from "@/lib/iso";
 
 export function getFilterOptions(products: ProductListItem[]): ProductFilterOptions {
   const unique = (values: string[]) => [...new Set(values)].sort();
@@ -13,7 +14,7 @@ export function getFilterOptions(products: ProductListItem[]): ProductFilterOpti
   return {
     applicationAreas: unique(products.flatMap((p) => p.applicationAreas)),
     packaging: unique(products.flatMap((p) => p.packaging)),
-    standards: unique(products.flatMap((p) => p.standards)),
+    standards: withoutIsoMentions(unique(products.flatMap((p) => p.standards))),
   };
 }
 

@@ -12,7 +12,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Pro Master Construction Products | UAE & GCC",
   description:
-    "Premium construction chemicals — waterproofing, tile adhesives, concrete repair, coatings and sealants. ISO certified. Distributed across the UAE and GCC.",
+    "Premium construction chemicals — waterproofing, tile adhesives, concrete repair, coatings and sealants. Distributed across the UAE and GCC.",
   icons: {
     icon: "/logo-white.jpg",
     shortcut: "/logo-white.jpg",

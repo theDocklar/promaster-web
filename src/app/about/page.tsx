@@ -28,7 +28,7 @@ const values = [
     num: "02",
     type: "Foundation",
     title: "Technical Reliability",
-    desc: "In-house laboratory QC, full TDS and SDS documentation, and a technical support team available across the UAE for site-level guidance.",
+    desc: "Rigorous quality control, full TDS and SDS documentation, and a technical support team available across the UAE for site-level guidance.",
   },
   {
     num: "03",
@@ -39,8 +39,7 @@ const values = [
 ];
 
 const capabilities = [
-  "ISO 9001:2015 certified quality management",
-  "In-house testing laboratory for batch QC",
+  "Rigorous batch quality control",
   "Technical support team available UAE-wide",
   "Full TDS, SDS, and project submittal support",
   "Compliant with MOEI, ASTM, EN, and BS standards",
@@ -48,11 +47,6 @@ const capabilities = [
 ];
 
 const certifications = [
-  {
-    abbr: "ISO",
-    name: "ISO 9001:2015",
-    desc: "Quality management — manufacturing and supply chain",
-  },
   {
     abbr: "MOEI",
     name: "UAE Ministry of Energy",
@@ -119,12 +113,13 @@ export default function AboutPage() {
         <div className="about-split">
           <div className="about-left">
             <div className="about-img-top">
-              <div
-                className="img-ph"
-                style={{ width: "100%", height: "100%", minHeight: 360 }}
-              >
-                <div className="img-ph-label">Company / Site Image</div>
-              </div>
+              <Image
+                src="/waterproofing.jpg"
+                alt="Pro Master waterproofing products on site"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="about-img-top-photo"
+              />
             </div>
             <div className="about-stats about-stats--4">
               {stats.map(({ num, lbl }) => (
@@ -196,12 +191,13 @@ export default function AboutPage() {
         <div className="about-split">
           <div className="about-left">
             <div className="about-img-top">
-              <div
-                className="img-ph"
-                style={{ width: "100%", height: "100%", minHeight: 360 }}
-              >
-                <div className="img-ph-label">Technical Support / Lab</div>
-              </div>
+              <Image
+                src="/sealants.jpg"
+                alt="Pro Master sealants and technical support"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="about-img-top-photo"
+              />
             </div>
           </div>
           <div className="about-right">

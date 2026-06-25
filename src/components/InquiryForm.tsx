@@ -107,7 +107,7 @@ export default function InquiryForm() {
 
         <div className="form-row-2">
           <div className="form-group">
-            <label>Full Name</label>
+            <label className="form-field-label">Full Name</label>
 
             <input
               name="name"
@@ -120,7 +120,7 @@ export default function InquiryForm() {
           </div>
 
           <div className="form-group">
-            <label>Company</label>
+            <label className="form-field-label">Company</label>
 
             <input
               name="company"
@@ -135,7 +135,7 @@ export default function InquiryForm() {
 
         <div className="form-row-2">
           <div className="form-group">
-            <label>Phone / WhatsApp</label>
+            <label className="form-field-label">Phone / WhatsApp</label>
 
             <input
               name="phone"
@@ -148,7 +148,7 @@ export default function InquiryForm() {
           </div>
 
           <div className="form-group">
-            <label>Email</label>
+            <label className="form-field-label">Email</label>
 
             <input
               name="email"
@@ -162,7 +162,7 @@ export default function InquiryForm() {
         </div>
 
         <div className="form-group">
-          <label>Inquiry Type</label>
+          <label className="form-field-label">Inquiry Type</label>
 
           <select
             name="inquiryType"
@@ -175,12 +175,11 @@ export default function InquiryForm() {
             <option>Bulk Order</option>
             <option>Distributor Partnership</option>
             <option>Technical Support</option>
-            <option>Lab / COA Request</option>
           </select>
         </div>
 
         <div className="form-group">
-          <label>Message</label>
+          <label className="form-field-label">Message</label>
 
           <textarea
             name="message"

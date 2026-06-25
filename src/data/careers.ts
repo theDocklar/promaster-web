@@ -39,7 +39,7 @@ const careerSeeds: CareerSeed[] = [
     department: "Quality & Operations",
     location: "Dubai, UAE",
     employmentType: "Full-time",
-    tags: ["ISO 9001", "Batch Testing", "Laboratory"],
+    tags: ["Batch Testing", "Laboratory", "Quality Control"],
     summary:
       "Run incoming and batch QC testing for construction chemical products, maintain lab records, and support certificate-of-analysis requests for project submittals.",
     responsibilities: [

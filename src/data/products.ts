@@ -376,7 +376,7 @@ const sharedCategoryProducts: Record<string, ProductSeed[]> = {
       shortDescription: "Polyurethane sealant for movement joints in facades and floors.",
       applicationAreas: ["External Facades", "Industrial Floors"],
       packaging: ["600 ml sausage"],
-      standards: ["ISO 11600"],
+      standards: ["EN 15651"],
       image: { alt: "PM-PU 25" },
     },
     {
@@ -387,7 +387,7 @@ const sharedCategoryProducts: Record<string, ProductSeed[]> = {
       shortDescription: "Neutral cure silicone for glazing and sanitary joints.",
       applicationAreas: ["Bathrooms", "External Facades"],
       packaging: ["310 ml cartridge"],
-      standards: ["ISO 11600"],
+      standards: ["EN 15651"],
       image: { alt: "PM-Sil NP" },
     },
     {
@@ -398,7 +398,7 @@ const sharedCategoryProducts: Record<string, ProductSeed[]> = {
       shortDescription: "Hybrid polymer sealant for high-movement construction joints.",
       applicationAreas: ["Balconies", "Roof Decks"],
       packaging: ["600 ml sausage"],
-      standards: ["ISO 11600"],
+      standards: ["EN 15651"],
       image: { alt: "PM-Hyb 40" },
     },
     {
@@ -444,7 +444,7 @@ const sharedCategoryProducts: Record<string, ProductSeed[]> = {
       shortDescription: "Self-levelling epoxy floor coating for industrial environments.",
       applicationAreas: ["Industrial Floors"],
       packaging: ["20 kg set"],
-      standards: ["ISO 4624"],
+      standards: ["EN 1542"],
       image: { alt: "PM-Epo FL" },
     },
     {
@@ -488,7 +488,7 @@ const sharedCategoryProducts: Record<string, ProductSeed[]> = {
       shortDescription: "Epoxy primer for non-porous substrates before coating application.",
       applicationAreas: ["Industrial Floors"],
       packaging: ["5 L pail", "20 L pail"],
-      standards: ["ISO 4624"],
+      standards: ["EN 1542"],
       image: { alt: "PM-Prim EP" },
     },
     {
@@ -580,7 +580,7 @@ const sharedCategoryProducts: Record<string, ProductSeed[]> = {
       shortDescription: "Heavy-duty epoxy flooring for warehouses and production areas.",
       applicationAreas: ["Industrial Floors"],
       packaging: ["20 kg set"],
-      standards: ["ISO 4624"],
+      standards: ["EN 1542"],
       image: { alt: "PM-Ind Epo" },
     },
     {
@@ -624,7 +624,7 @@ const sharedCategoryProducts: Record<string, ProductSeed[]> = {
       shortDescription: "Decorative chip flooring for showrooms and commercial spaces.",
       applicationAreas: ["Internal Floors"],
       packaging: ["20 kg set"],
-      standards: ["ISO 4624"],
+      standards: ["EN 1542"],
       image: { alt: "PM-Dec CH" },
     },
     {

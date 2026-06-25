@@ -6,6 +6,7 @@ import type {
   ProductSpecification,
 } from "@/types/product";
 import { getSanityImageUrl } from "@/sanity/lib/image-url";
+import { mentionsIso } from "@/lib/iso";
 
 /** Split a delimited string ("a, b; c") into trimmed, non-empty values. */
 function splitList(value?: string | null): string[] {
@@ -44,7 +45,7 @@ function deriveStandards(
   const fromCerts = (certifications ?? [])
     .map((c) => c?.abbr ?? "")
     .filter((abbr): abbr is string => Boolean(abbr));
-  return [...new Set([...fromSpec, ...fromCerts])];
+  return [...new Set([...fromSpec, ...fromCerts])].filter((standard) => !mentionsIso(standard));
 }
 
 /**

@@ -13,6 +13,7 @@ import type {
   ProductListItem,
   ProductSpecification,
 } from "@/types/product";
+import { withoutIsoMentions } from "@/lib/iso";
 
 const CATEGORY_FEATURE_TEMPLATES: Record<string, string[]> = {
   waterproofing: [
@@ -103,12 +104,14 @@ function buildDescription(product: ProductListItem): string {
       ? product.applicationAreas.slice(0, 3).join(", ")
       : "demanding construction environments";
 
-  const standards =
-    product.standards.length > 0
-      ? ` Compliant with ${product.standards.join(", ")}.`
+  const standards = withoutIsoMentions(product.standards);
+
+  const standardsText =
+    standards.length > 0
+      ? ` Compliant with ${standards.join(", ")}.`
       : "";
 
-  return `${product.shortDescription} Engineered for ${areas} across the UAE and GCC.${standards} Available in ${product.packaging.join(" and ")}.`;
+  return `${product.shortDescription} Engineered for ${areas} across the UAE and GCC.${standardsText} Available in ${product.packaging.join(" and ")}.`;
 }
 
 function buildFeatures(product: ProductListItem): string[] {
@@ -116,7 +119,7 @@ function buildFeatures(product: ProductListItem): string[] {
     CATEGORY_FEATURE_TEMPLATES[product.categorySlug] ??
     CATEGORY_FEATURE_TEMPLATES.waterproofing;
 
-  const contextual = product.standards.map(
+  const contextual = withoutIsoMentions(product.standards).map(
     (standard) => `Tested and certified to ${standard} requirements`
   );
 
@@ -139,7 +142,10 @@ function buildSpecifications(product: ProductListItem): ProductSpecification[] {
     },
     {
       key: "Standard",
-      value: product.standards.length > 0 ? product.standards.join(", ") : "Contact for details",
+      value: (() => {
+        const standards = withoutIsoMentions(product.standards);
+        return standards.length > 0 ? standards.join(", ") : "Contact for details";
+      })(),
     },
     {
       key: "Shelf Life",

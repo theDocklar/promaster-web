@@ -3,16 +3,24 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InquiryForm from "@/components/InquiryForm";
+import FeaturedProduct from "@/components/home/FeaturedProduct";
 import { FaWhatsapp } from "react-icons/fa";
 import { client } from "@/sanity/lib/client";
 import { ALL_CATEGORIES_QUERY, ALL_PROJECTS_QUERY, ALL_CERTIFICATIONS_QUERY } from "@/sanity/lib/queries";
+import { mentionsIso } from "@/lib/iso";
 import { urlFor } from "@/sanity/lib/image-url";
 
 export default async function Home() {
   // Fetch data from Sanity
   const categories = await client.fetch(ALL_CATEGORIES_QUERY);
   const projects = await client.fetch(ALL_PROJECTS_QUERY);
-  const certifications = await client.fetch(ALL_CERTIFICATIONS_QUERY);
+  const certifications = (await client.fetch(ALL_CERTIFICATIONS_QUERY)).filter(
+    (cert: { abbr?: string; name?: string; description?: string; standard?: string }) =>
+      cert.standard !== "iso" &&
+      !mentionsIso(cert.abbr ?? "") &&
+      !mentionsIso(cert.name ?? "") &&
+      !mentionsIso(cert.description ?? ""),
+  );
   return (
     <>
       {/* ── HEADER ── */}
@@ -22,7 +30,7 @@ export default async function Home() {
       <section className="hero" id="home">
         <div className="hero-bg" aria-hidden="true">
           <Image
-            src="/hero3.jpg"
+            src="/home promaster.jpg"
             alt=""
             fill
             priority
@@ -57,8 +65,8 @@ export default async function Home() {
             Gulf climate.
           </h1>
           <p className="hero-sub">
-            Waterproofing, adhesives, coatings, and repair systems. ISO
-            certified. Distributed across the GCC.
+            Waterproofing, adhesives, coatings, and repair systems. Distributed
+            across the GCC.
           </p>
           <Link href="/products" className="hero-cta">
             Explore Products &nbsp;&#8594;
@@ -110,117 +118,19 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* ── PRODUCT DETAIL ── */}
-      <div id="product-detail">
-        {/* <div className="breadcrumb">
-          <a href="#">Home</a>
-          <span className="bc-sep">/</span>
-          <a href="#">Products</a>
-          <span className="bc-sep">/</span>
-          <a href="#">Waterproofing</a>
-          <span className="bc-sep">/</span>
-          PM-CRYSTAL 300
-        </div> */}
-
-        {/* <ProductDetailTabs /> */}
-
-        <div className="detail-wrap">
-          <div className="detail-image">
-            <div className="img-ph" style={{ minHeight: 600 }}>
-              <div className="img-ph-label">Product Image</div>
-            </div>
-          </div>
-          <div className="detail-info">
-            <div className="di-cat">Crystalline Waterproofing System</div>
-            <div className="di-name">
-              PM-CRYSTAL 300
-              <br />
-              Penetrating Crystalline Slurry
-            </div>
-            <div className="di-desc">
-              Single-component, cement-based crystalline compound that reacts
-              with moisture to form insoluble crystals within the concrete
-              matrix — permanently blocking capillaries and hairline cracks up
-              to 0.4mm.
-            </div>
-
-            <div className="di-features">
-              {[
-                "Self-sealing — crystals re-activate in the presence of moisture",
-                "Withstands up to 7 bar negative hydrostatic pressure",
-                "Non-toxic — potable water tank approved (WRAS)",
-                "Applicable to green or cured concrete",
-                "Compliant with EN 1504-2 Surface Protection",
-              ].map((feat) => (
-                <div className="di-feat-item" key={feat}>
-                  {feat}
-                </div>
-              ))}
-            </div>
-
-            <div className="di-specs">
-              {[
-                ["Coverage", "0.8 – 1.2 kg/m² per coat"],
-                ["Pot Life @ 25°C", "30 minutes"],
-                ["Packaging", "5 kg pail, 25 kg bag"],
-                ["Standard", "EN 1504-2"],
-                ["Shelf Life", "12 months sealed"],
-              ].map(([key, val]) => (
-                <div className="di-spec-row" key={key}>
-                  <span className="di-spec-key">{key}</span>
-                  <span className="di-spec-val">{val}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="di-area-row">
-              {[
-                "Basement Walls",
-                "Water Tanks",
-                "Swimming Pools",
-                "Tunnels",
-                "Foundations",
-                "Lift Pits",
-              ].map((area) => (
-                <span className="di-area-tag" key={area}>
-                  {area}
-                </span>
-              ))}
-            </div>
-
-            <div className="detail-downloads-compact">
-              <p className="detail-downloads-compact-label">Downloads</p>
-              <div className="detail-downloads-compact-list">
-                <a href="/technical-data-sheets" className="detail-download-chip">
-                  TDS PDF
-                </a>
-                <a href="#resources" className="detail-download-chip">
-                  SDS PDF
-                </a>
-                <a href="#resources" className="detail-download-chip">
-                  Application Guide
-                </a>
-              </div>
-            </div>
-
-            <div className="di-actions">
-              <button className="di-btn-primary">Request a Quote</button>
-              <button className="di-btn-secondary">WhatsApp Inquiry</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <FeaturedProduct />
 
       {/* ── ABOUT ── */}
       <div className="about-split" id="about">
         <div className="about-left">
           <div className="about-img-top">
-            <div
-              className="img-ph"
-              style={{ width: "100%", height: "100%", minHeight: 400 }}
-            >
-              <div className="img-ph-label">Company / Site Image</div>
-            </div>
+            <Image
+              src="/home promaster.jpg"
+              alt="Pro Master company site"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="about-img-top-photo"
+            />
           </div>
           <div className="about-stats">
             {[
@@ -250,7 +160,6 @@ export default async function Home() {
           </p>
           <div className="about-list">
             {[
-              "ISO 9001:2015 certified quality management",
               "In-house testing laboratory for batch QC",
               "Technical support team available UAE-wide",
               "Full TDS, SDS, and project submittal support",

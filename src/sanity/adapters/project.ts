@@ -6,6 +6,7 @@ import type {
   ProjectProductUsed,
 } from "@/types/project";
 import { getSanityImageUrl } from "@/sanity/lib/image-url";
+import { mentionsIso } from "@/lib/iso";
 
 const GALLERY_LABELS = ["Overview", "Application", "Detail", "Completion"];
 
@@ -80,7 +81,8 @@ export function sanityToProjectDetail(doc: any): ProjectDetail {
         name: cert.name ?? cert.abbr,
       };
     })
-    .filter((item: ProjectCertification | null): item is ProjectCertification => item !== null);
+    .filter((item: ProjectCertification | null): item is ProjectCertification => item !== null)
+    .filter((cert) => !mentionsIso(cert.abbr) && !mentionsIso(cert.name));
 
   return {
     ...list,
