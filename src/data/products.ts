@@ -796,3 +796,9 @@ export async function getProductBySlug(
   }
   return findMockProductBySlug(categorySlug, productSlug);
 }
+
+export function getProductHref(
+  product: Pick<ProductListItem, "categorySlug" | "slug">,
+): string {
+  return `/products/${product.categorySlug}/${product.slug}`;
+}

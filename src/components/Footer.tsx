@@ -1,10 +1,10 @@
 import Link from "next/link";
 import BackToTop from "@/components/BackToTop";
-import { AUTHORIZED_DISTRIBUTOR_NAME } from "@/data/distributor";
-import { getCategoryHref, productCategories } from "@/data/productCategories";
+import { getCategoryHref, getProductCategories } from "@/data/productCategories";
 
-export default function Footer() {
-  const sortedCategories = [...productCategories].sort(
+export default async function Footer() {
+  const categories = await getProductCategories();
+  const sortedCategories = [...categories].sort(
     (a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0),
   );
 
@@ -15,30 +15,38 @@ export default function Footer() {
 
         <div className="pf-newsletter">
           <div className="pf-nl-title">
-            Subscribe to the<br />Pro Master Newsletter
+            Subscribe to the
+            <br />
+            Pro Master Newsletter
           </div>
           <div className="pf-nl-sub">
-            Latest product launches, technical updates, and project news direct to your inbox.
+            Latest product launches, technical updates, and project news direct
+            to your inbox.
           </div>
           <div className="pf-input-row">
-            <input className="pf-input" type="email" placeholder="your@email.com" />
+            <input
+              className="pf-input"
+              type="email"
+              placeholder="your@email.com"
+            />
             <button className="pf-arrow">&#8594;</button>
           </div>
           <div className="pf-nl-note">
-            By signing up, I agree with the data protection policy of Pro Master.
+            By signing up, I agree with the data protection policy of Pro
+            Master.
           </div>
         </div>
 
         <div className="pf-col">
           <h4>Products</h4>
-          <div className="pf-links">
-            <a href="/products">All Products</a>
+          <nav className="pf-links" aria-label="Product categories">
+            <Link href="/products">All Products</Link>
             {sortedCategories.map((category) => (
-              <a href={getCategoryHref(category)} key={category._id}>
+              <Link href={getCategoryHref(category)} key={category._id}>
                 {category.shortTitle ?? category.title}
-              </a>
+              </Link>
             ))}
-          </div>
+          </nav>
         </div>
 
         <div className="pf-col">
@@ -46,24 +54,24 @@ export default function Footer() {
           <div className="pf-links">
             <Link href="/about">About</Link>
             <Link href="/projects">Projects</Link>
-            <a href="/#contact">Distributors</a>
+            <Link href="/distributors">Distributors</Link>
             <Link href="/careers">Careers</Link>
-            <a href="/#contact">Contact</a>
+            <Link href="/#contact">Contact</Link>
           </div>
         </div>
 
         <div className="pf-col">
           <h4>Resources</h4>
           <div className="pf-links">
+            <Link href="/technical-data-sheets">Technical Data Sheets</Link>
             {[
-              "Technical Data Sheets",
               "Safety Data Sheets",
               "Application Guides",
               "Downloads",
               "Newsletter",
-            ].map((l) => (
-              <a href="#" key={l}>
-                {l}
+            ].map((label) => (
+              <a href="#" key={label}>
+                {label}
               </a>
             ))}
           </div>
@@ -73,9 +81,6 @@ export default function Footer() {
       <div className="footer-bar">
         <div className="footer-bar__legal">
           <span>Pro Master Construction Products LLC</span>
-          <span className="footer-bar__distributor">
-            Authorized distributor: {AUTHORIZED_DISTRIBUTOR_NAME}
-          </span>
         </div>
         <span>© {new Date().getFullYear()} All rights reserved.</span>
         <BackToTop />

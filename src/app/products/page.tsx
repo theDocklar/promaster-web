@@ -42,13 +42,13 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
 
       <main className="page-main page-main--bg page-main--category-listing">
         <header className="category-listing-header">
-          <p className="mb-3 font-[family-name:var(--mono)] text-[11px] font-bold uppercase tracking-[0.13em] text-[var(--pm-red)]">
+          <p className="mb-3 font-[family-name:var(--font)] text-[11px] font-bold uppercase tracking-[0.13em] text-[var(--pm-red)]">
             Product Range
           </p>
           <h1 className="mb-4 text-[clamp(28px,4vw,40px)] font-black uppercase leading-none tracking-[-0.04em] text-[var(--black)]">
             All Products
           </h1>
-          <p className="max-w-3xl text-sm leading-[1.7] text-[var(--mid)]">
+          <p className="max-w-3xl text-sm leading-[1.7] text-[var(--black)]">
             Systems engineered for the Gulf climate. Search, sort,
             and filter the full range — or narrow by category using the sidebar.
           </p>

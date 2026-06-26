@@ -107,7 +107,7 @@ export default function ProductListing({
         className={`category-listing__content min-w-0${listing.totalItems === 0 ? " category-listing__content--empty" : ""}`}
       >
         {hasActiveFilters(search, filters) && listing.totalItems > 0 && (
-          <p className="mb-6 text-[13px] leading-relaxed text-[var(--mid)]">
+          <p className="mb-6 text-[13px] leading-relaxed text-[var(--black)]">
             Filtered and sorted results.
           </p>
         )}

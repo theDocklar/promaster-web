@@ -170,7 +170,6 @@ export default async function Home() {
               "In-house testing laboratory for batch QC",
               "Technical support team available UAE-wide",
               "Full TDS, SDS, and project submittal support",
-              "Compliant with MOEI, ASTM, EN, and BS standards",
             ].map((item) => (
               <div className="al-item" key={item}>
                 {item}

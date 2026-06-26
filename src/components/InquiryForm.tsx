@@ -87,7 +87,7 @@ export default function InquiryForm() {
           <p
             style={{
               fontSize: 14,
-              color: "var(--mid)",
+              color: "var(--black)",
               lineHeight: 1.8,
             }}
           >

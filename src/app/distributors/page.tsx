@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ProjectListing from "@/components/projects/listing/ProjectListing";
-import { getAllProjects } from "@/data/projects";
+import DistributorListing from "@/components/distributors/DistributorListing";
+import { getAllDistributors } from "@/data/distributor";
 
 export const metadata: Metadata = {
-  title: "All Projects | Pro Master Construction Products",
+  title: "Distributors | Pro Master Construction Products",
   description:
-    "Browse landmark construction projects across the UAE and GCC where Pro Master products were specified and applied.",
+    "Find authorized Pro Master distributors across the UAE and GCC for construction chemicals, waterproofing, and building materials.",
 };
 
-export default async function ProjectsPage() {
-  const projects = await getAllProjects();
+export default function DistributorsPage() {
+  const distributors = getAllDistributors();
 
   return (
     <>
@@ -21,14 +21,15 @@ export default async function ProjectsPage() {
       <main className="page-main page-main--bg page-main--category-listing">
         <header className="category-listing-header">
           <p className="mb-3 font-[family-name:var(--font)] text-[11px] font-bold uppercase tracking-[0.13em] text-[var(--pm-red)]">
-            Projects
+            Distributors
           </p>
           <h1 className="mb-4 text-[clamp(28px,4vw,40px)] font-black uppercase leading-none tracking-[-0.04em] text-[var(--black)]">
-            All Projects
+            Authorized Network
           </h1>
           <p className="max-w-3xl text-sm leading-[1.7] text-[var(--black)]">
-            Specified and applied on landmark construction projects across the
-            UAE and GCC. Filter by type, location, or year.
+            Pro Master products are supplied through authorized distributors
+            across the UAE and GCC. Contact your local partner for product
+            availability, technical support, and project submittals.
           </p>
           <Link
             href="/"
@@ -38,7 +39,9 @@ export default async function ProjectsPage() {
           </Link>
         </header>
 
-        <ProjectListing projects={projects} />
+        <div className="category-listing__content distributors-listing">
+          <DistributorListing distributors={distributors} />
+        </div>
       </main>
 
       <Footer />
