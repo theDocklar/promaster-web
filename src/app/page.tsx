@@ -31,7 +31,7 @@ export default async function Home() {
       <section className="hero" id="home">
         <div className="hero-bg" aria-hidden="true">
           <Image
-            src="/home promaster.jpg"
+            src="/hero4.png"
             alt=""
             fill
             priority
@@ -128,7 +128,8 @@ export default async function Home() {
             <Image
               src="/home promaster.jpg"
               alt="Pro Master company site"
-              fill
+              width={1200}
+              height={800}
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="about-img-top-photo"
             />

@@ -19,7 +19,7 @@
   --subtle: #eeeeee;
   --bg: #f8f8f8;
   --white: #ffffff;
-  --font: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: var(--font-poppins), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono: "Courier New", monospace;
   --header-height: 52px;
 }
@@ -405,7 +405,7 @@ button {
   z-index: -1;
 }
 .hero-eyebrow {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--pm-red);
   letter-spacing: 0.18em;
@@ -413,6 +413,7 @@ button {
   margin-bottom: 16px;
   font-family: var(--font);
   text-transform: uppercase;
+  -webkit-text-stroke: 0.3px currentColor;
 }
 .hero-h1 {
   font-size: clamp(36px, 4.5vw, 56px);
@@ -914,13 +915,14 @@ button {
   background: var(--bg);
 }
 .di-cat {
-  font-size: 11px;
-  font-family: var(--mono);
+  font-size: 12px;
+  font-family: var(--font);
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--pm-red);
   margin-bottom: 18px;
-  font-weight: 700;
+  font-weight: 800;
+  -webkit-text-stroke: 0.4px currentColor;
 }
 .di-name {
   font-size: 34px;
@@ -1301,21 +1303,20 @@ a.di-btn-secondary {
   min-width: 0;
 }
 .about-img-top {
-  flex: 1;
-  min-height: 360px;
-  position: relative;
   overflow: hidden;
 }
 .about-img-top-photo {
-  object-fit: cover;
-  object-position: center center;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .about-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--border);
-  flex-shrink: 0;
+  flex: 1;
   width: 100%;
+  align-content: center;
 }
 .about-stat {
   padding: 28px 24px;
@@ -1346,13 +1347,14 @@ a.di-btn-secondary {
   border-left: 1px solid var(--border);
 }
 .about-right .eyebrow {
-  font-size: 11px;
-  font-family: var(--mono);
+  font-size: 12px;
+  font-family: var(--font);
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--pm-red);
   margin-bottom: 20px;
-  font-weight: 700;
+  font-weight: 800;
+  -webkit-text-stroke: 0.4px currentColor;
 }
 .about-right h2 {
   font-size: 34px;
@@ -1764,13 +1766,14 @@ a.proj-row,
   justify-content: center;
 }
 .inq-left .eyebrow {
-  font-size: 11px;
-  font-family: var(--mono);
+  font-size: 12px;
+  font-family: var(--font);
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--pm-red);
   margin-bottom: 20px;
-  font-weight: 700;
+  font-weight: 800;
+  -webkit-text-stroke: 0.4px currentColor;
 }
 .inq-left h2 {
   font-size: 40px;
@@ -1811,9 +1814,9 @@ a.proj-row,
   color: var(--pm-red);
 }
 .it-name {
-  font-size: 14px;
-  color: var(--mid);
-  font-weight: 500;
+  font-size: 15px;
+  color: var(--dark);
+  font-weight: 600;
   transition: color 0.12s;
 }
 .it-arrow {
@@ -1872,7 +1875,7 @@ a.proj-row,
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: var(--border);
+  color: var(--light);
 }
 .form-group textarea {
   resize: none;
@@ -1880,8 +1883,14 @@ a.proj-row,
 }
 .form-group select {
   -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
-  color: var(--mid);
+  color: var(--dark);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 12px;
+  padding-right: 24px;
 }
 .form-row-2 {
   display: grid;
@@ -3191,9 +3200,7 @@ a.proj-row,
     font-size: clamp(24px, 5vw, 36px);
   }
 
-  .about-img-top {
-    min-height: clamp(220px, 40vh, 360px);
-  }
+
 
   .detail-gallery-frame,
   .detail-gallery-ph {
