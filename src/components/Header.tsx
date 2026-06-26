@@ -44,15 +44,7 @@ export default function Header() {
       <header className={`site-header${scrolled ? " scrolled" : ""}`}>
         <div className="nav-row">
           <Link href="/" className="nav-logo" aria-label="Pro Master home" onClick={closeMenu}>
-            <Image
-              src="/promaster-logo.png"
-              alt=""
-              width={64}
-              height={64}
-              priority
-              aria-hidden="true"
-              className="nav-logo-img"
-            />
+
             <span className="nav-logo-text">
               Pro<span>Master</span>
             </span>
