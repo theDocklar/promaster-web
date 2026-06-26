@@ -51,6 +51,28 @@ export const product = defineType({
       ],
     }),
     defineField({
+      name: 'gallery',
+      title: 'Product Gallery (Optional)',
+      type: 'array',
+      description: 'Additional product images for the gallery. If provided, these will be shown on the product detail page.',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            defineField({
+              name: 'alt',
+              type: 'string',
+              title: 'Alt Text',
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: 'features',
       title: 'Features',
       type: 'array',
