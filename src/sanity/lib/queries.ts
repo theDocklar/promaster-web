@@ -150,6 +150,15 @@ export const PRODUCT_DETAIL_QUERY = `
       hotspot,
       crop
     },
+    gallery[] {
+      asset {
+        _ref,
+        url
+      },
+      alt,
+      hotspot,
+      crop
+    },
     "category": category->{_id, title, slug},
     features,
     specifications,

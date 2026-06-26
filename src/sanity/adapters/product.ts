@@ -102,16 +102,35 @@ export function sanityToProductDetail(doc: any): ProductDetail {
     ].filter(Boolean) as ProductSpecification[]
   );
 
-  const galleryUrl =
+  // Build images array: start with main image, then add gallery images if available
+  const mainImageUrl =
     getSanityImageUrl(doc?.image, {
       width: 1600,
       fit: "max",
     }) ??
     getSanityImageUrl(doc?.image) ??
     list.image.url;
-  const images: ProductImage[] = galleryUrl
-    ? [{ alt: list.image.alt, url: galleryUrl }]
+  
+  const images: ProductImage[] = mainImageUrl
+    ? [{ alt: list.image.alt, url: mainImageUrl }]
     : [{ alt: list.image.alt }];
+
+  // Add gallery images if available
+  if (Array.isArray(doc?.gallery) && doc.gallery.length > 0) {
+    const galleryImages = doc.gallery
+      .map((img: any) => {
+        const url = getSanityImageUrl(img, {
+          width: 1600,
+          fit: "max",
+        });
+        return url
+          ? { alt: img?.alt ?? doc?.name ?? "Product image", url }
+          : null;
+      })
+      .filter((img: ProductImage | null): img is ProductImage => img !== null);
+    
+    images.push(...galleryImages);
+  }
 
   const downloads: ProductDownload[] = (Array.isArray(doc?.resources) ? doc.resources : [])
     .map((r: any): ProductDownload | null => {
