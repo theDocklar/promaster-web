@@ -227,7 +227,7 @@ export function getAllProjectParams(): { slug: string }[] {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-export const WHATSAPP_NUMBER = "971500000000";
+export const WHATSAPP_NUMBER = "971505710805";
 
 export function buildWhatsAppUrl(project: ProjectListItem): string {
   const message = `Hi, I'd like more details about the project "${project.name}". Could you share the case study and technical information?`;

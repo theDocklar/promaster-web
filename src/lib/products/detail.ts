@@ -266,7 +266,7 @@ export function getAllProductParams(): { slug: string; productSlug: string }[] {
   }));
 }
 
-export const WHATSAPP_NUMBER = "971500000000";
+export const WHATSAPP_NUMBER = "971505710805";
 
 export function buildWhatsAppUrl(product: ProductListItem): string {
   const message = `Hi, I'm interested in ${product.name} (${product.sku}). Could you provide a quote and technical support?`;
