@@ -144,7 +144,7 @@ export default async function AboutPage() {
             <h2 className="about-page__heading">About Us</h2>
             <div className="about-page__hero">
               <Image
-                src="/home promaster.jpg"
+                src="/promaster company building.png"
                 alt="Pro Master construction team on site"
                 width={1600}
                 height={900}
